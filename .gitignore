@@ -1,0 +1,9 @@
+# Projets 
+node_modules/
+dist/
+.env
+.djscore/
+
+# IDE
+*.DS_store
+.idea/

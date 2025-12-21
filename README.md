@@ -1,0 +1,68 @@
+# 🤖 Bot Discord.js v14
+
+This repository contains a bot template for `discord.js@v14`. It use external handler (developped by cleboost `djs-core` ans some submodule). The bot is designed with a handler to easily create commands, buttons, selections and other fun interactions.
+
+---
+
+## 🛠️ Prerequisites
+
+Before using this bot, make sure you have:
+
+- **Bun.js (min v18)**: To run bot. (Djs-core is not compatible with Node.js)
+
+## 🚀 Installation
+
+1. Clone this repository to your local system.
+2. Open the project in your IDE.
+3. Install dependencies with `bun i` command.
+4. Start bot with `bun start`.
+
+## 🛠️ Build 
+
+1. Build the project with `bun run build`
+2. You can now run the bot with `bun dist/index.js`
+
+---
+
+## 📜 Default commands available:
+
+- 🏓 **/ping** Displays bot latency (in ms)
+- 🔍 **/autocomplete** Demo command showcasing autocomplete functionality
+- Example commands for various options (need update of djs-core but planned)
+
+---
+
+## 💡 Particularities :
+
+- Admin category commands are not shown in /help and require being registered (Discord ID) in the `config.json` owner array 👑
+- Commands marked as `devOnly: true` require being a developer to execute and should be registered in the `config.json` dev array 💻
+- Configurations are cached in the client, accessible by `client.config`
+- DB is cached in the client, accessible by `client.db`
+- Cooldown is in seconds but resets on each bot restart; it's disabled for devOnly commands ⏱️
+- You can launch the bot with `npm run dev`, in which case the bot restarts with each save you make, otherwise use `node index.js` or `npm run start`
+- Buttons and commands can have categories: create a folder and place the file inside (see examples)
+- Debug mode enabled by default, configuration in `.env`
+
+## 🛠️ SubCommand :
+
+This projet allow you to create sub command like `/command subcommand`. To do it, you can check exemple in `src/interactions/commands/utils/handler.ts` and `src/interactions/commands/utils/handler/button.ts`
+As you can see, you need to create the regitred command where you define name of your command, description, default permission, sub command. In subfolder with same name of your command, you can create subcommand. Subcommand files need to have same name of the subcommand.
+
+---
+
+## 🔍 AutoComplete :
+
+This project includes an autocomplete demo command that shows how to implement interactive command options. Check the example in `src/interactions/commands/utils/autocomplete.ts` to see how to:
+- Add string options with `.setAutocomplete(true)`
+- Handle autocomplete interactions with `.autoComplete()` method
+- Provide dynamic suggestions to users as they type
+
+---
+
+## 🤝 Contribution
+
+Contributions are welcome! If you want to improve this bot or add new features, feel free to submit a pull request.
+
+## ⚖️ License
+
+This project is licensed under MIT - see the [LICENSE](https://github.com/here-template/Bot-Discord/blob/main/LICENSE) link for more details. 📜

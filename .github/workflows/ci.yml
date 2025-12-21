@@ -1,0 +1,19 @@
+name: CI
+permissions:
+  contents: read
+
+on:
+  push:
+
+jobs:
+  check:
+    concurrency:
+      group: check-${{ github.ref }}
+      cancel-in-progress: true
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: oven-sh/setup-bun@v2
+
+      - run: bun i
+      - run: bun check
